@@ -1,0 +1,87 @@
+:root {
+	--font1: 'Roboto', sans-serif;
+	--font2: 'Cairo', sans-serif;
+	--font3: 'Girassol', sans-serif;
+	--font4: 'Whisper', cursive;
+	
+	
+	--body-bg: #FCFCFC;
+	--body-fg: brown;
+	
+	--header-bg: #2043E5!important;
+	--header-logo-fg: #fff;
+	
+	--header-menu-bg: #FDFDFD;
+	--header-menu-fg: black;
+	
+	--main-menu-bg: #FDFDFD;
+	--main-menu-fg: black;
+	
+	--main-content-wrapper-bg: #E5E8EE;
+	
+	--main-content-bg: #E5E8EE;
+	
+	--footer-bg: #F4F4F5;
+	--footer-fg: #000;
+	
+	--banner-bg: #ffff;
+	--banner-fg: #000;
+	--banner-image: url(../../resources/images/brand/a.jpg);
+		
+	--card-header-bg: #F8F8F9;
+	--card-header-fg: #0080F3;
+
+	--card-body-bg: #FFFFFF;
+	--card-body-fg: #000;
+	
+	--card-footer-bg: #FFFFFF;
+	--card-footer-fg: #000;
+	
+	--table-header-bg: #F8F8F9;
+	--table-header-fg: #0080F3;
+
+	--table-data-even-bg: #F2F2F2;
+	--table-data-even-fg: black;
+
+	--table-data-odd-fg: black;
+	--table-data-odd-bg: white;
+
+	--label-bg: white;
+	--label-fg: black;
+	
+	--input-bg: white;
+	--input-fg: black;
+
+	--button-border: #1da1f5;
+	--button-bg: #1da1f5;
+	--button-fg: #fff;
+	
+	--icon-bg: white;
+	--icon-fg: white;
+	
+	--error-msg-bg: transparent;
+	--error-msg-fg: white;
+
+	 
+    --blue: #0d6efd;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #d63384;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #198754;
+    --teal: #20c997;
+    --cyan: #0dcaf0;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+}

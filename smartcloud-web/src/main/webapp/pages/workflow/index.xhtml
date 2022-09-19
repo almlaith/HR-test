@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:jk="http://jalalkiswani.com/jsf"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:of="http://omnifaces.org/ui">
+<ui:composition template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="page-title">
+		Workflow Pending Items
+	</ui:define>
+
+	<ui:define name="contents">      
+		<h:form>
+			<p:dataTable value="#{workflow.payloads}" filteredValue="#{workflow.filterList2}" var="model" rowKey="#{model.id}" paginator="true"
+				paginatorAlwaysVisible="false" paginatorPosition="bottom" rows="10" selectionMode="single" selection="#{workflow.payload}" emptyMessage=""
+				rowIndexVar="row" rendered="#{workflow.payloads.size()>0}">
+				<p:ajax event="rowSelect" />
+				<p:autoUpdate/>
+				<f:facet name="header">Pending Items</f:facet>
+				<p:column headerText="#">#{row+1}</p:column>
+				<p:column headerText="Entity" sortBy="#{model.workflowClass}" filterBy="#{model.workflowClass}" filterMatchMode="contains">
+					<h:outputText value="#{model.workflowClass}">
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Status" sortBy="#{model.status}" filterBy="#{model.status}" filterMatchMode="contains">
+					<h:outputText value="#{model.status==null?'-':model.status}">
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Role" sortBy="#{model.role}" filterBy="#{model.role}" filterMatchMode="contains">
+					<h:outputText value="#{model.role==null?'-':model.role}">
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Creator" sortBy="#{model.creator}" filterBy="#{model.creator}" filterMatchMode="contains">
+					<h:outputText value="#{model.creator==null?'-':model.creator}">
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Timestamp" sortBy="#{model.timestamp}" filterBy="#{model.timestamp}" filterMatchMode="contains">
+					<h:outputText value="#{model.timestamp==null?'-':model.timestamp}">
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Original Action" sortBy="#{model.originalAction}" filterBy="#{model.originalAction}" filterMatchMode="contains">
+					<h:outputText value="#{model.originalAction==null?'-':model.originalAction}">
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>

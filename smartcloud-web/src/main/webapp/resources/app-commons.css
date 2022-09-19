@@ -1,0 +1,128 @@
+::placeholder {
+	color: blue;
+	opacity: 0.2;
+}
+
+.form-header {
+}
+
+.page-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	padding: 5px 10px;
+	background-color: var(--card-header-bg);
+	color: var(--card-header-fg);
+	margin-bottom: 10px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.top-actions .title {
+	
+}
+
+.top-actions .actions {
+	
+}
+.top-actions .add-button {
+	
+}
+
+.top-actions .reload-button {
+	
+}
+
+.data-table {
+	overflow: auto;
+	
+}
+
+.data-table .edit-button {
+	
+}
+
+.form-actions {
+	text-align: center;
+}
+
+.form-actions .add {
+	
+}
+
+.form-actions .edit {
+	
+}
+
+.form-actions .save {
+	
+}
+
+.form-actions .delete {
+	
+}
+
+.form-actions .reset {
+	
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.transparent, .transparent * {
+	background-color: transparent;
+}
+
+.fa{
+padding: 2px;	
+}
+button {
+	background-color: var(--button-bg) !important; 
+	color: var(--button-fg) !important;
+	border-color: var(--button-border)!important;
+	margin: 0px 5px 0px 0px!important;
+}
+
+.error-message {
+	background-color: var(--error-msg-bg);
+	color: var(--error-msg-fg);
+	display: inline-block;
+	padding: 3px 10px;
+}
+.top td{
+	vertical-align: top;
+}
+
+.flex-row{
+	display: flex;
+	justify-content: left;
+	align-items:flex-start;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+.flex-col{
+	display: flex;
+	justify-content: flex-start;
+	align-items:baseline;
+	flex-direction: column;
+}
+.flex-top{
+align-items: baseline;	
+}
+
+.no-padding ,.no-padding td{
+	padding: 0px !important;
+}
+
+.input-modified{
+	border: 1px solid green!important;
+}

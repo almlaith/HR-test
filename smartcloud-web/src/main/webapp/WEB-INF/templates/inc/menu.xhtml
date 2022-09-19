@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<h:form>
+		<p:autoUpdate />
+		<p:menubar>
+			<p:submenu label="Security" icon="fa jk-key" rendered="#{mbSecurity.admin}">
+				<p:menuitem value="Roles" url="#{request.contextPath}/admin/roles/" />
+				<p:menuitem value="Users" url="#{request.contextPath}/admin/users/" />
+			</p:submenu>
+
+                  <p:submenu label="Config" rendered="#{mbSecurity.userLoggedIn}">			
+                            <p:menuitem value="Department" url="#{request.contextPath}/pages/module1/config/department/" />
+                            <p:menuitem value="Degree" url="#{request.contextPath}/pages/module1/config/degree/" />
+                  </p:submenu>                      
+                  <p:submenu label="Management" rendered="#{mbSecurity.userLoggedIn}">			
+                            <p:menuitem value="Employee " url="#{request.contextPath}/pages/module1/management/employee-/" />
+                  </p:submenu>                      
+                  <p:submenu label="Report" rendered="#{mbSecurity.userLoggedIn}">			
+                  </p:submenu>                      
+
+			
+		</p:menubar>
+	</h:form>
+
+</ui:composition>
+</html>

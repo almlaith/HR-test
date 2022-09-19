@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:jk="http://jalalkiswani.com/jsf"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<h:form id="frmDegree" enctype="multipart/form-data">
+	<p:autoUpdate />
+	<p:panelGrid columns="4" style="margin:auto;" styleClass="shaddow">
+		<f:facet name="header">Degree Record</f:facet>
+
+ 
+    
+	<p:outputLabel value="Name" for="name"/>	
+	
+	<p:inputText type="text" value="#{mbDegree.model.name}" id="name"  placeholder="Name" disabled="#{mbDegree.inputDisabled}" required="false" styleClass="#{mbDegree.isFieldModified('name')?'input-modified':''}" title="#{mbDegree.original.name}">
+	  <p:ajax />
+	</p:inputText>
+
+ 
+    
+	<p:outputLabel value="Decs" for="decs"/>	
+	
+	<p:inputTextarea id="decs"  value="#{mbDegree.model.decs}" readOnly="true" required="false" placeholder="Decs" disabled="#{mbDegree.inputDisabled}" styleClass="#{mbDegree.isFieldModified('decs')?'input-modified':''}" title="#{mbDegree.original.decs}">
+	  <p:ajax />
+	</p:inputTextarea>
+	
+		<f:facet name="footer">			
+		<div class="form-actions">
+		<p:commandButton value="Add" action="#{mbDegree.add}" rendered="#{mbDegree.allowAdd}"  process="@form" icon="fa fa-save" styleClass="add"/>
+		<p:commandButton value="Edit" action="#{mbDegree.edit}"  rendered="#{mbDegree.allowEdit}"  process="@this" icon="fa fa-edit" styleClass="edit"/>
+		<ui:remove>
+		<p:commandButton value="Duplicate" action="#{mbGenerator.duplicate()}"  rendered="#{mbGenerator.allowEdit}"  process="@this"/>
+		</ui:remove>
+		<p:commandButton value="Save" action="#{mbDegree.save}" rendered="#{mbDegree.allowSave}"  process="@form" icon="fa fa-save" styleClass="save"/>
+		<p:commandButton value="Reset" action="#{mbDegree.reset}" rendered="#{mbDegree.allowReset}"  process="@this" icon="fas fa-undo" styleClass="reset"/>
+		<p:commandButton value="Fill" action="#{mbDegree.fill}" rendered="#{mbDegree.allowFill}"  process="@this" icon="fas fa-fill" styleClass="fill"/>
+		<p:commandButton value="Cancel Edit" action="#{mbDegree.cancelEdit()}" rendered="#{mbDegree.editMode}"  process="@this" styleClass="cancel-edit"/>
+		<p:commandButton value="Delete" action="#{mbDegree.delete}" rendered="#{mbDegree.allowDelete}"  process="@this" icon="fa fa-trash" styleClass="delete">
+		  	<p:confirm header="Confirmation" message="Are you sure that want to delete this record?" icon="fas fa-exclamation-triangle"/>
+		</p:commandButton>
+	
+		<ui:fragment rendered="#{mbDegree.mode == 'WORKFLOW' }">
+			<p:commandButton value="Approve" action="#{mbDegree.approvePayload(mbDegree.payload.id)}" process="@this" />
+			<p:commandButton value="Reject" action="#{mbDegree.rejectPayload(mbDegree.payload.id)}" process="@this" />						
+		</ui:fragment>
+		</div>				
+		</f:facet>
+	</p:panelGrid>		
+	</h:form>
+</ui:composition>
+</html>

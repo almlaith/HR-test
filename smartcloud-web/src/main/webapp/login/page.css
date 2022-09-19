@@ -1,0 +1,65 @@
+.login-page {
+	
+}
+
+.login-page .login-panel {
+	margin: 50px auto;
+	width: 450px;
+	background-color: white;
+	border-radius: 5px;
+	padding: 0px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.login-page .login-panel .login-panel-header {
+	font-weight: bold;
+	background-color: var(--card-header-bg);
+	color: var(--card-header-fg);
+	text-align: center;
+	padding: 10px;
+	margin: 0;
+	font-size: 1.1em;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.login-page .login-panel .fields {
+	background-color: var(--card-body-bg);
+	color: var(--card-body-fg);
+}
+
+.login-page .login-panel .fields .fieldset {
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+}
+
+.login-page .login-panel .fields .fieldset label {
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+	padding-top: 3px;
+}
+
+.login-page .login-panel .fields .fieldset input {
+	text-align: left;
+	width: 100%;
+	line-height: 30px;
+	display: inline-block;
+}
+
+.login-page .login-panel  .panel-footer {
+	margin-top: 20px;
+	border-top: 1px solid lightgray;
+	padding: 10px 0px 10px 0px;
+	text-align: center;
+	background-color: var(--card-footer-bg);
+	color: var(--card-footer-fg);
+}
+
+.login-page .login-panel  .panel-footer button {
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}

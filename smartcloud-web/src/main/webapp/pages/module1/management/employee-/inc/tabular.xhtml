@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:jk="http://jalalkiswani.com/jsf"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<h:form>
+	<p:dataTable 
+		value="#{mbEmployee.modelList}" 
+		filteredValue="#{mbEmployee.filterList}"
+		var="model" 
+		rowKey="#{model.id}"
+		paginator="true" 
+		paginatorAlwaysVisible="false" 
+		paginatorPosition="bottom" 
+		rows="10"
+		selectionMode="single" 
+		selection="#{mbEmployee.model}"  
+		emptyMessage="" 
+		rowIndexVar="row"
+		styleClass="no-padding"
+		rendered="#{mbEmployee.editTabular}" 
+		id="tblTabular">
+		<p:ajax event="rowSelect"/>
+		<p:autoUpdate />
+		<f:facet name="header">
+		    <p:commandButton action="#{mbEmployee.saveAll()}" value="Save" update="@(form)"/>
+            <p:commandButton action="#{mbEmployee.setEditTabular(false)}" value="Cancel" update="@(form)"/>		    
+		  </f:facet>
+		<p:column headerText="#">#{row+1}</p:column>
+		
+		    <p:column 
+			  	headerText="First Name" 
+			  	sortBy="#{model.firstName}" 
+			  	filterBy="#{model.firstName}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.firstName}" id="firstName"  placeholder="FirstName" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('firstName')?'input-modified':''}" title="#{mbEmployee.original.firstName}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Second Name" 
+			  	sortBy="#{model.secondName}" 
+			  	filterBy="#{model.secondName}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.secondName}" id="secondName"  placeholder="SecondName" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('secondName')?'input-modified':''}" title="#{mbEmployee.original.secondName}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Third Name" 
+			  	sortBy="#{model.thirdName}" 
+			  	filterBy="#{model.thirdName}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.thirdName}" id="thirdName"  placeholder="ThirdName" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('thirdName')?'input-modified':''}" title="#{mbEmployee.original.thirdName}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Last Name " 
+			  	sortBy="#{model.lastName}" 
+			  	filterBy="#{model.lastName}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.lastName}" id="lastName"  placeholder="LastName" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('lastName')?'input-modified':''}" title="#{mbEmployee.original.lastName}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Salary" 
+			  	sortBy="#{model.salary}" 
+			  	filterBy="#{model.salary}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="number" value="#{model.salary}" id="salary"  placeholder="Salary" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('salary')?'input-modified':''}" title="#{mbEmployee.original.salary}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Email" 
+			  	sortBy="#{model.email}" 
+			  	filterBy="#{model.email}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="email" value="#{model.email}" id="email"  placeholder="Email" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('email')?'input-modified':''}" title="#{mbEmployee.original.email}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Department" 
+			  	sortBy="#{model.department}" 
+			  	filterBy="#{model.department}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+    	<p:selectOneMenu value="#{model.department}" id="department" disabled="false" converter="omnifaces.SelectItemsIndexConverter" styleClass="#{mbEmployee.isFieldModified('department')?'input-modified':''}" title="#{mbEmployee.original.department}">
+    	  <p:ajax />  
+    	  <f:selectItem itemLabel="" itemValue="#{null}"  />
+    	  <f:selectItems value="#{mbDepartment.modelList}" var="ref" itemLabel="#{ref.name}" itemValue="#{ref}"  />
+    	</p:selectOneMenu>	
+	
+			</p:column>	
+		    <p:column 
+			  	headerText="Degree" 
+			  	sortBy="#{model.degree}" 
+			  	filterBy="#{model.degree}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.degree}" id="degree"  placeholder="Degree" disabled="false" required="false" styleClass="#{mbEmployee.isFieldModified('degree')?'input-modified':''}" title="#{mbEmployee.original.degree}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+	   </p:dataTable>
+	</h:form>
+</ui:composition>
+</html>

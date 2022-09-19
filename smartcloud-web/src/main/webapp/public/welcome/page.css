@@ -1,0 +1,38 @@
+.product-banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 500px;
+	height: 400px;
+	margin: 20px auto; 
+	background-color: var(--banner-bg);
+	color: var(--banner-fg);
+	border-radius: 5px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	font-family: var(--font2);
+}
+
+.product-banner .product-name {
+	padding-top: 15px;
+	font-size: 1.8em;
+	color: var(--card-header-fg);
+}
+
+.product-banner .logo{
+	background-image: var(--banner-image);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width:100%;
+	height: 250px;
+}
+
+.product-banner .product-summary {
+	font-size: 1em;
+	font-family: var(--font2);
+}
+
+.product-banner .product-version {
+	font-size: 0.8em;
+	font-weight: bolder;
+}

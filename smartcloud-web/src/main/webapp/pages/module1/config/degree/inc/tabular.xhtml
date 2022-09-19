@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:jk="http://jalalkiswani.com/jsf"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<h:form>
+	<p:dataTable 
+		value="#{mbDegree.modelList}" 
+		filteredValue="#{mbDegree.filterList}"
+		var="model" 
+		rowKey="#{model.id}"
+		paginator="true" 
+		paginatorAlwaysVisible="false" 
+		paginatorPosition="bottom" 
+		rows="10"
+		selectionMode="single" 
+		selection="#{mbDegree.model}"  
+		emptyMessage="" 
+		rowIndexVar="row"
+		styleClass="no-padding"
+		rendered="#{mbDegree.editTabular}" 
+		id="tblTabular">
+		<p:ajax event="rowSelect"/>
+		<p:autoUpdate />
+		<f:facet name="header">
+		    <p:commandButton action="#{mbDegree.saveAll()}" value="Save" update="@(form)"/>
+            <p:commandButton action="#{mbDegree.setEditTabular(false)}" value="Cancel" update="@(form)"/>		    
+		  </f:facet>
+		<p:column headerText="#">#{row+1}</p:column>
+		
+		    <p:column 
+			  	headerText="Name" 
+			  	sortBy="#{model.name}" 
+			  	filterBy="#{model.name}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputText type="text" value="#{model.name}" id="name"  placeholder="Name" disabled="false" required="false" styleClass="#{mbDegree.isFieldModified('name')?'input-modified':''}" title="#{mbDegree.original.name}">
+	  <p:ajax />
+	</p:inputText>
+			</p:column>	
+		    <p:column 
+			  	headerText="Decs" 
+			  	sortBy="#{model.decs}" 
+			  	filterBy="#{model.decs}" 
+			  	filterMatchMode="contains">
+
+ 
+    
+	
+	<p:inputTextarea id="decs"  value="#{model.decs}" readOnly="true" required="false" placeholder="Decs" disabled="false" styleClass="#{mbDegree.isFieldModified('decs')?'input-modified':''}" title="#{mbDegree.original.decs}">
+	  <p:ajax />
+	</p:inputTextarea>
+	
+			</p:column>	
+	   </p:dataTable>
+	</h:form>
+</ui:composition>
+</html>

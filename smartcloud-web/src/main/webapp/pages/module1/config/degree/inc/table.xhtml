@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:jk="http://jalalkiswani.com/jsf"
+	xmlns:p="http://primefaces.org/ui" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<h:form>
+	<p:dataTable 
+		value="#{mbDegree.modelList}" 
+		filteredValue="#{mbDegree.filterList}"
+		var="model" rowKey="#{model.id}"
+		paginator="true" 
+		paginatorAlwaysVisible="false" 
+		paginatorPosition="bottom" 
+		rows="10"
+		selectionMode="single" 
+		selection="#{mbDegree.model}"  
+		emptyMessage="" 
+		rowIndexVar="row"
+		rendered="#{not mbDegree.editTabular}" 
+		id="tblData">
+		<p:ajax event="rowSelect"/>
+		<p:autoUpdate />
+		<f:facet name="header">Degree Data</f:facet>
+		<p:column headerText="#">#{row+1}</p:column>
+		
+
+			    <p:column 
+    			  	headerText="Name" 
+    			  	sortBy="#{model.name}" 
+    			  	filterBy="#{model.name}" 
+    			  	filterMatchMode="contains">
+                    <h:outputText value="#{model.name==null?'-':model.name}" >
+        			</h:outputText>
+    			</p:column>	
+			    <p:column 
+    			  	headerText="Decs" 
+    			  	sortBy="#{model.decs}" 
+    			  	filterBy="#{model.decs}" 
+    			  	filterMatchMode="contains">
+                    <h:outputText value="#{model.decs==null?'-':model.decs}" >
+        			</h:outputText>
+    			</p:column>	
+			<p:column rendered="#{mbDegree.model.id ne null}" headerText="Action">
+				<p:commandLink rendered="#{mbDegree.model.id eq model.id}" oncomplete="PF('frm').show()" styleClass="edit-button">
+					<i class="fa fa-edit" />
+				</p:commandLink>
+				<p:commandLink rendered="#{mbDegree.model.id eq model.id}" action="#{mbDegree.delete}" process="@this" styleClass="delete text-danger">
+					<i class="fa fa-trash" />
+					<p:confirm header="Confirmation" message="Are you sure that want to delete this record?" icon="fas fa-exclamation-triangle" />
+				</p:commandLink>
+			</p:column>
+		  
+	</p:dataTable>
+	</h:form>
+</ui:composition>
+</html>
